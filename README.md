@@ -1,432 +1,229 @@
-# 🔥 ARVEX CLOUD VPS PANEL
+# 🚀 ArveX CLOUD - Premium Cloud Hosting Platform
 
-**A Production-Grade VPS Hosting Platform**
+A modern, futuristic cloud hosting website built with Next.js 15, Tailwind CSS, and Framer Motion. Designed with a premium dark UI, gaming vibes, and enterprise-grade aesthetics.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15+-blue.svg)](https://www.postgresql.org/)
-[![Docker](https://img.shields.io/badge/Docker-Supported-blue.svg)](https://www.docker.com/)
+## ✨ Features
 
----
-
-## 📖 Overview
-
-ARVEX CLOUD is a complete, scalable, production-ready VPS hosting platform similar to DigitalOcean, AWS Lightsail, or Linode. It provides everything needed to operate a cloud hosting business.
-
-### ✨ Key Features
-
-✅ **VPS Management**
-- Create, delete, start, stop, restart VPS instances
-- Multiple OS templates (Ubuntu, Debian, CentOS)
-- Custom CPU, RAM, and disk allocation
-- SSH access and web console
-- Automated backups and snapshots
-
-✅ **Multi-Node Architecture**
-- Distribute VPS across multiple physical nodes
-- Load balancing and failover
-- Real-time node monitoring
-- Auto-scaling support
-
-✅ **Web Dashboard**
-- Intuitive user interface
-- Real-time stats and monitoring
-- Account management
-- Billing and invoicing
-- Admin panel for management
-
-✅ **Billing System**
-- Multiple payment methods (Stripe, PayPal, Crypto)
-- Flexible billing cycles (hourly, monthly, yearly)
-- Coupon and discount system
-- Automated invoicing
-- Credit wallet system
-
-✅ **Security**
-- JWT authentication with 2FA
-- Role-based access control (RBAC)
-- Firewall rules per VPS
-- DDoS protection basics
-- Audit logs and activity tracking
-
-✅ **Monitoring & Analytics**
-- Real-time CPU, RAM, disk, network monitoring
-- Uptime tracking
-- System alerts and notifications
-- Performance graphs and reports
-
----
-
-## 🏗️ Architecture
-
-```
-┌─────────────────────────────────────────────────────┐
-│           ARVEX CLOUD ARCHITECTURE                  │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│  Frontend (Next.js)  →  Nginx  ←  Backend (NestJS) │
-│                          ↓                          │
-│                    PostgreSQL + Redis               │
-│                          ↓                          │
-│  Node Agent 1  ·  Node Agent 2  ·  Node Agent N     │
-│      (LXC)            (LXC)             (LXC)       │
-│       ↓                ↓                 ↓          │
-│    VPS1,2        VPS3,4,5           VPS6,7,8       │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Docker & Docker Compose
-- Git
-- Node.js 18+ (for local development)
-- PostgreSQL 15+ (if not using Docker)
-
-### Installation
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/ayzen1102-glitch/arvex-cloud.git
-cd arvex-cloud
-```
-
-2. **Configure environment variables**
-```bash
-cp .env.example .env
-# Edit .env with your settings
-vim .env
-```
-
-3. **Start with Docker Compose**
-```bash
-docker-compose up -d
-```
-
-4. **Run database migrations**
-```bash
-docker-compose exec backend npm run migration:run
-```
-
-5. **Access the platform**
-- Frontend: http://localhost:3001
-- API: http://localhost:3000/api
-- Admin: http://localhost:3001/admin (default: admin/admin123)
-
----
+- **Modern Stack**: Next.js 15 with App Router, TypeScript, and Tailwind CSS
+- **Smooth Animations**: Framer Motion for fluid, performant interactions
+- **Responsive Design**: Fully responsive from mobile to desktop
+- **Premium UI**: Dark mode with purple and cyan glow accents
+- **Gaming + Cloud Vibe**: Unique design inspired by premium platforms
+- **SEO Optimized**: Meta tags, structured data, and performance optimizations
+- **Performance**: Optimized for Core Web Vitals and fast loading
+- **Accessibility**: WCAG compliant with proper semantic HTML
 
 ## 📁 Project Structure
 
 ```
 arvex-cloud/
-├── backend/                    # NestJS API Server
-│   ├── src/
-│   │   ├── modules/           # Feature modules
-│   │   ├── controllers/       # API endpoints
-│   │   ├── services/          # Business logic
-│   │   ├── entities/          # Database models
-│   │   └── config/            # Configuration
-│   └── Dockerfile
-│
-├── frontend/                   # Next.js Dashboard
-│   ├── pages/                 # Route pages
-│   ├── components/            # React components
-│   ├── hooks/                 # Custom hooks
-│   ├── context/               # State management
-│   └── styles/                # TailwindCSS
-│
-├── node-agent/                # Node VPS Manager
-│   ├── src/
-│   │   ├── lxc/              # LXC/LXD management
-│   │   ├── api/              # API client
-│   │   ├── monitoring/       # System monitoring
-│   │   └── core/             # Core agent logic
-│   └── Dockerfile
-│
-├── database/                  # Database files
-│   ├── schema.sql            # Database schema
-│   └── seeds.sql             # Sample data
-│
-├── nginx/                     # Nginx configuration
-├── docker/                    # Docker files
-├── scripts/                   # Deployment scripts
-└── docker-compose.yml         # Docker Compose config
+├── app/
+│   ├── layout.tsx           # Root layout with metadata
+│   ├── page.tsx             # Home page
+│   └── globals.css          # Global styles
+├── components/
+│   ├── Navbar.tsx           # Navigation component
+│   ├── Hero.tsx             # Hero section
+│   ├── Features.tsx         # Features section
+│   ├── Pricing.tsx          # Pricing cards
+│   └── Footer.tsx           # Footer
+├── public/                  # Static assets
+├── package.json
+├── tsconfig.json
+├── tailwind.config.ts       # Tailwind configuration
+├── next.config.ts           # Next.js configuration
+└── README.md
 ```
 
----
+## 🎨 Design Highlights
 
-## 🔧 Configuration
+### Color Palette
+- **Primary**: Purple (#9333ea) with cyan (#06b6d4) accents
+- **Background**: Deep dark (#0a0e17) for AMOLED screens
+- **Gradients**: Smooth purple-to-cyan transitions
+- **Glows**: Customizable shadow effects for premium feel
 
-### Backend Configuration
+### Components
 
-Edit `backend/.env`:
+#### Navbar
+- Sticky header with scroll detection
+- Mobile-responsive menu
+- Smooth navigation with hover effects
+- Logo with glow effect
 
-```env
-DATABASE_URL=postgresql://user:pass@localhost:5432/arvex
-REDIS_URL=redis://localhost:6379
-JWT_SECRET=your_secret_key
-STRIPE_KEY=pk_test_xxxxx
-```
+#### Hero
+- Eye-catching headline with gradient text
+- Animated background elements
+- CTA buttons with glow effects
+- Stats section
+- Interactive dashboard preview
 
-### Frontend Configuration
+#### Features
+- 8 feature cards with icons
+- Hover animations and effects
+- Grid layout responsive design
+- Icon backgrounds with gradients
 
-Edit `frontend/.env.local`:
+#### Pricing
+- 3-tier pricing strategy
+- Featured/highlighted plan
+- Feature lists with checkmarks
+- Responsive card layout
 
-```env
-NEXT_PUBLIC_API_URL=http://localhost:3000
-NEXT_PUBLIC_WS_URL=ws://localhost:3000
-```
+#### Footer
+- Company information
+- Multiple link sections
+- Contact information
+- Social media links
+- Copyright section
 
-### Node Agent Configuration
+## 🚀 Getting Started
 
-Edit `node-agent/.env`:
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-```env
-API_URL=http://backend:3000
-NODE_ID=node-001
-LXD_SOCKET=/var/snap/lxd/common/lxd.sock
-```
+### Installation
 
----
-
-## 📚 API Documentation
-
-### Authentication
-
-**Register User**
+1. Clone the repository:
 ```bash
-POST /api/auth/register
-Content-Type: application/json
-
-{
-  "username": "user123",
-  "email": "user@example.com",
-  "password": "securepass123"
-}
+git clone https://github.com/ayzen1102-glitch/arvex-cloud.git
+cd arvex-cloud
 ```
 
-**Login**
+2. Install dependencies:
 ```bash
-POST /api/auth/login
-Content-Type: application/json
-
-{
-  "email": "user@example.com",
-  "password": "securepass123"
-}
-```
-
-### VPS Management
-
-**Create VPS**
-```bash
-POST /api/vps
-Authorization: Bearer {token}
-Content-Type: application/json
-
-{
-  "name": "My Web Server",
-  "image": "ubuntu:22.04",
-  "cpu": 2,
-  "memory": 4,
-  "disk": 60
-}
-```
-
-**List VPS**
-```bash
-GET /api/vps
-Authorization: Bearer {token}
-```
-
-**Get VPS Details**
-```bash
-GET /api/vps/{id}
-Authorization: Bearer {token}
-```
-
-**Start VPS**
-```bash
-POST /api/vps/{id}/start
-Authorization: Bearer {token}
-```
-
-**Stop VPS**
-```bash
-POST /api/vps/{id}/stop
-Authorization: Bearer {token}
-```
-
-Full API documentation available at `/api/docs` when running.
-
----
-
-## 🛠️ Development
-
-### Backend Development
-
-```bash
-cd backend
 npm install
+```
+
+3. Run the development server:
+```bash
 npm run dev
 ```
 
-### Frontend Development
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
+## 📦 Build & Deploy
+
+### Build for production:
 ```bash
-cd frontend
-npm install
-npm run dev
+npm run build
 ```
 
-### Node Agent Development
-
+### Start production server:
 ```bash
-cd node-agent
-npm install
-npm run dev
+npm run start
 ```
 
----
-
-## 🐳 Docker Deployment
-
-### Build Images
-
+### Deploy to Vercel:
 ```bash
-docker-compose build
+npm i -g vercel
+vercel
 ```
 
-### Start Services
+## 🎯 Key Technologies
 
+- **Next.js 15**: React framework with App Router
+- **TypeScript**: Type-safe development
+- **Tailwind CSS**: Utility-first CSS framework
+- **Framer Motion**: Animation library
+- **Lucide React**: Icon library
+- **clsx**: Conditional className utility
+
+## 🎨 Customization
+
+### Tailwind Configuration
+Modify `tailwind.config.ts` to change:
+- Color palette
+- Custom animations
+- Shadow effects
+- Typography
+
+### Animation Tuning
+Adjust animation durations and easing in component files using Framer Motion's `transition` prop.
+
+### Content Updates
+Update text content directly in component files:
+- `components/Hero.tsx` - Main headline
+- `components/Features.tsx` - Feature descriptions
+- `components/Pricing.tsx` - Pricing tiers
+- `components/Footer.tsx` - Footer links
+
+## 📱 Responsive Breakpoints
+
+- **sm**: 640px
+- **md**: 768px
+- **lg**: 1024px
+- **xl**: 1280px
+- **2xl**: 1536px
+
+## ⚡ Performance Optimizations
+
+- Image optimization with Next.js Image component
+- Code splitting with App Router
+- CSS minification and compression
+- Font optimization with Google Fonts
+- Lazy loading for components
+- Efficient animations with GPU acceleration
+
+## ♿ Accessibility
+
+- Semantic HTML structure
+- ARIA labels where needed
+- Keyboard navigation support
+- Focus visible states
+- Color contrast compliance
+- Readable font sizes
+
+## 📊 SEO
+
+- Meta tags in layout.tsx
+- Open Graph tags
+- Twitter Card tags
+- Structured data ready
+- Sitemap compatible
+- Mobile-friendly design
+
+## 🐛 Troubleshooting
+
+### Port already in use
 ```bash
-docker-compose up -d
+npm run dev -- -p 3001
 ```
 
-### View Logs
+### Tailwind styles not applied
+- Ensure you've run `npm install`
+- Check that file paths in `tailwind.config.ts` are correct
+- Clear `.next` folder: `rm -rf .next`
 
-```bash
-docker-compose logs -f backend
-docker-compose logs -f frontend
-docker-compose logs -f node-agent
-```
-
-### Stop Services
-
-```bash
-docker-compose down
-```
-
----
-
-## 📊 Database
-
-### Schema
-
-The database includes tables for:
-- Users and authentication
-- VPS instances and configuration
-- Nodes (physical servers)
-- Billing and payments
-- Monitoring data
-- Audit logs
-
-### Migrations
-
-```bash
-# Run migrations
-npm run migration:run
-
-# Create new migration
-npm run migration:create -- NameOfMigration
-
-# Revert migration
-npm run migration:revert
-```
-
----
-
-## 🔐 Security
-
-### Best Practices Implemented
-
-✅ Password hashing with bcryptjs  
-✅ JWT tokens with expiration  
-✅ CORS protection  
-✅ SQL injection prevention via ORM  
-✅ Rate limiting  
-✅ HTTPS/TLS support  
-✅ Audit logging  
-✅ 2FA support  
-✅ Role-based access control  
-
-### Securing Deployment
-
-1. Change all default passwords
-2. Set strong JWT secret
-3. Enable HTTPS with SSL certificates
-4. Configure firewall rules
-5. Set up monitoring and alerting
-6. Regular security audits
-
----
-
-## 📈 Scaling
-
-### Horizontal Scaling
-
-- Add more Node Agents for VPS distribution
-- Use load balancer for API servers
-- Scale PostgreSQL with replicas
-- Scale Redis for caching
-
-### Performance Optimization
-
-- Cache frequently accessed data in Redis
-- Optimize database queries with indexes
-- Use CDN for static assets
-- Implement pagination for large datasets
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
+### Build errors
+- Run `npm install` again
+- Clear cache: `npm cache clean --force`
+- Check TypeScript errors: `npx tsc --noEmit`
 
 ## 📝 License
 
-This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
+MIT License - feel free to use this for personal or commercial projects.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 💡 Future Enhancements
+
+- [ ] Dark/Light theme toggle
+- [ ] Blog section
+- [ ] Customer testimonials
+- [ ] Comparison table
+- [ ] FAQ accordion
+- [ ] Newsletter signup
+- [ ] Live chat integration
+- [ ] API documentation
+
+## 📧 Support
+
+For support, email support@arvexcloud.com or open an issue on GitHub.
 
 ---
 
-## 🆘 Support
-
-- 📧 Email: support@arvex.cloud
-- 💬 Discord: [Join Server](https://discord.gg/arvex)
-- 📖 Documentation: [Full Docs](https://docs.arvex.cloud)
-- 🐛 Issues: [GitHub Issues](https://github.com/ayzen1102-glitch/arvex-cloud/issues)
-
----
-
-## 🙏 Acknowledgments
-
-- Inspired by DigitalOcean, AWS Lightsail, and Linode
-- Built with NestJS, Next.js, and PostgreSQL
-- VPS management via LXC/LXD
-
----
-
-**Made with ❤️ by ARVEX CLOUD Team**
-
-GitHub: [@ayzen1102-glitch](https://github.com/ayzen1102-glitch)
+**Made with ❤️ for the future of cloud hosting**
